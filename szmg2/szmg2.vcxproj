@@ -154,7 +154,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DicomImage.cpp" />
     <ClCompile Include="szmg2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DicomImage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

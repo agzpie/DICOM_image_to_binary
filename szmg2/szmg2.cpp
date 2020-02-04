@@ -2,9 +2,12 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include <iostream>
+//#include <dcmtk>
 
 using namespace cv;
 using namespace std;
+
+
 
 Mat equalizeIntensity(const Mat& inputImage)
 {
@@ -28,7 +31,7 @@ Mat equalizeIntensity(const Mat& inputImage)
 
 		cvtColor(ycrcb, result, COLOR_YCrCb2BGR);
 		
-		imshow("YCrCb equalization", ycrcb);
+		imshow("YCrCb equalization", result);
 
 		waitKey();
 	}
@@ -53,6 +56,29 @@ Mat equalizeIntensity(const Mat& inputImage)
 	 equalizeIntensity(src);
 
 	 waitKey();
+
+
+	 /*
+	 DicomImage* image = new DicomImage("test.dcm");
+	 if (image != NULL)
+	 {
+		 if (image->getStatus() == EIS_Normal)
+		 {
+			 if (image->isMonochrome())
+			 {
+				 image->setMinMaxWindow();
+				 Uint8* pixelData = (Uint8*)(image->getOutputData(8 /* bits ));
+				 if (pixelData != NULL)
+				 {
+					 /* do something useful with the pixel data 
+				 }
+			 }
+		 }
+		 else
+			 cerr << "Error: cannot load DICOM image (" << DicomImage::getString(image->getStatus()) << ")" << endl;
+	 }
+	 delete image;
+	 */
 
 	 return 0;
  }
